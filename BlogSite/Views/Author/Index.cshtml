@@ -1,0 +1,57 @@
+﻿@model AuthorVM
+
+@{
+}
+
+@*table*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Authors)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Authors)
+        {
+        <tr>
+            @if (item.PhotoPath != null)
+            {
+                <td>
+                    <img src="@Url.Content(@item.PhotoPath)" width="100" height="100" />
+                </td>
+            }
+            else
+            {
+                <td>
+                    <img src="@Url.Content("~/images/defaultImage.png")" width="100" height="100" />
+                </td>
+
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorAbout)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoPath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Articles)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
